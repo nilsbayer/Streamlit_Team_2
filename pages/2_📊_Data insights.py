@@ -9,40 +9,13 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 @st.experimental_singleton
 def load_data():
-    data = pd.read_csv('./vending_machine_sales.csv')
-    data.dropna(inplace=True)
-    data['date'] = pd.to_datetime(data["TransDate"])
+    data = pd.read_csv('./Vending_machine_Data.csv')
+    data['date'] = pd.to_datetime(data["date"])
     data.set_index('date', inplace=True)
 
     return data
 
 data = load_data()
-
-def add_data(data):
-    data["best_seller"] = False
-    data.loc[data['Product'] == "Coca Cola - Zero Sugar", 'best_seller'] = True
-    data.loc[data['Product'] == "Monster Energy Original", 'best_seller'] = True
-    data.loc[data['Product'] == "Poland Springs Water", 'best_seller'] = True
-    data.loc[data['Product'] == "KitKat - Crisp Wafers", 'best_seller'] = True
-    data.loc[data['Product'] == "Sunkist Soda - Orange", 'best_seller'] = True
-    data.loc[data['Product'] == "Red Bull - Original", 'best_seller'] = True
-    data.loc[data['Product'] == "Coca Cola - Regular", 'best_seller'] = True
-    data.loc[data['Product'] == "Wonderful Pistachios - Variety", 'best_seller'] = True
-    data.loc[data['Product'] == "CheezIt - Original", 'best_seller'] = True
-    data.loc[data['Product'] == "SunChips Multigrain - Harvest Cheddar", 'best_seller'] = True
-    data.loc[data['Product'] == "Robert Irvine's - Fit Crunch -  Chocolate Pea", 'best_seller'] = True
-    data.loc[data['Product'] == "Snapple Diet Tea - Peach Tea", 'best_seller'] = True
-    data.loc[data['Product'] == "Oreo Mini", 'best_seller'] = True
-    data.loc[data['Product'] == "SunChips Multigrain - Salsa", 'best_seller'] = True
-    data.loc[data['Product'] == "Takis - Hot Chilli Pepper & Lime", 'best_seller'] = True
-    data.loc[data['Product'] == "Goldfish Baked - Cheddar", 'best_seller'] = True
-    data.loc[data['Product'] == "Snapple Diet Tea - Lemon", 'best_seller'] = True
-    data.loc[data['Product'] == "Cheetos - Fleming Hot Crunchy", 'best_seller'] = True
-    data.loc[data['Product'] == "Funyuns - Flaming Hot", 'best_seller'] = True
-    data.loc[data['Product'] == "Snapple Tea - Raspberry", 'best_seller'] = True
-
-    best_pros = data[data["best_seller"] == True]
-    return best_pros
 
 st.title('Analysis')
 

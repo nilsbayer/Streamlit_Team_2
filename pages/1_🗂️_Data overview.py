@@ -2,8 +2,14 @@ import numpy as np
 import streamlit as st
 import pandas as pd
 from PIL import Image
+from streamlit.components.v1 import html
 
-st.title('Hackathon Group 2')
+
+# st.title('Hackathon Group 2')
+html("""\
+<h1 style="color:red;font-family:sans-serif;font-size:3rem;margin:0;padding:0;box-sizing:border-box">Hackathon Group 2</h1>
+""")
+
 st.header('Vending machine sales in central New Jersey')
 st.write('''The following application is for visualizing and analyzing data from vending machines in four
 specific locations in central New Jersey in the time period 2022.01.01 to 2022.08.31.''')
@@ -11,9 +17,6 @@ st.write('The following will be analysed:')
 st.write('What product and category sells the most.')
 st.write('What location sells the most.')
 st.write('When are the vending machines selling the most.')
-
-data = pd.read_csv('./vending_machine_sales.csv')
-data.dropna(inplace=True)
 
 image = Image.open('vending_machines_picture.PNG')
 
@@ -38,8 +41,3 @@ st.write('MQty : Mapped quantity sold. This is usually one but machines can be c
 st.write('LineTotal : Total sale per transaction')
 st.write('TransTotal : Represents total of all transactions that will show up on the Credit Card. A user could vend a drink for 3 dollars and a snack for 1.5 dollars making a total of 4.50 dollars')
 st.write('Prcd Date : Date when the transaction was processed by SeedLive ( an entity that is used to aggregate all transactions electronically )')
-
-st.title('Analysis')
-st.header('Best selling product')
-st.write('The following visualization is for the best selling product')
-

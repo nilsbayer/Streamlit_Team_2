@@ -137,7 +137,7 @@ st.pydeck_chart(pdk.Deck(
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("#### Best sold products")
+    st.markdown("#### Best sold products by unit")
     st.write(data["Product"].value_counts().head())
 
 with col2:

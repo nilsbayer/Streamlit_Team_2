@@ -7,7 +7,10 @@ from streamlit.components.v1 import html
 
 # st.title('Hackathon Group 2')
 html("""\
-<h1 style="color:red;font-family:sans-serif;font-size:3rem;margin:0;padding:0;box-sizing:border-box">Hackathon Group 2</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<h1 style="color:grey;font-family:'Source Sans Pro', sans-serif;font-size:3rem;margin:0;padding:0;box-sizing:border-box">Hackathon Group 2</h1>
 """)
 
 st.header('Vending machine sales in central New Jersey')

@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import pydeck as pdk
+from streamlit.components.v1 import html
+
 
 @st.experimental_singleton
 def load_data():
@@ -36,13 +38,35 @@ data = data[start : end]
 
 # START OF SITE'S CONTENT
 
-col1, col2 = st.columns(2)
+html('''\
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<style>
+    *{
+        font-family:'Source Sans Pro', sans-serif;
+    }
+    span{
+        font-size:4rem;
+    }
+    #sp1{
+        color:#D54C34;
+    }
+    #sp2{
+        color:#00CC96;
+    }
+    #sp3{
+        color:#636EFA;
+    }
+    small{
+        font-size:1.2rem;
+    }
+</style>
+<span id="sp1">EX</span><span  id="sp2">PL</span><span id="sp3">ORE</span>
+<div><small>⬅️ Select a time frame and take a look at the item sales!</small></div>
+''')
 
-with col1:
-    pass
-
-with col2:
-    pass
+st.markdown("## Distribution of sold categories")
 
 fig = px.pie(
     data, values='TransTotal', names='Category',
@@ -52,22 +76,24 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-midpoint = (np.average(data["Latitude"]), np.average(data["Longitude"]))
+st.markdown("## Comparing locations on the map")
+
+midpoint = (np.average(data["Longitude"]), np.average(data["Latitude"]))
 
 st.pydeck_chart(pdk.Deck(
     map_style="road",
     initial_view_state=pdk.ViewState(
         latitude=midpoint[0],
         longitude=midpoint[1],
-        zoom=8.35,
+        zoom=10, 
         pitch=50,
     ),
     layers=[
         pdk.Layer(
            'HexagonLayer',
-           data=data[["Longitude", "Latitude"]],
-           get_position=['Longitude', 'Latitude'],
-           radius=200,
+           data=data[["Latitude", "Longitude"]],
+           get_position=['Latitude', 'Longitude'],
+           radius=600,
            elevation_scale=4,
            elevation_range=[0, 1000],
            pickable=True,
@@ -82,3 +108,13 @@ st.pydeck_chart(pdk.Deck(
         # ),
     ],
 ))
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("#### Best sold products")
+    st.write(data["Product"].value_counts().head())
+
+with col2:
+    st.markdown("#### Revenue per location")
+    st.write(data.groupby("Location")["LineTotal"].sum().sort_values(ascending=False))

@@ -116,8 +116,8 @@ st.pydeck_chart(pdk.Deck(
     layers=[
         pdk.Layer(
            'HexagonLayer',
-           data=data[["Latitude", "Longitude"]],
-           get_position=['Latitude', 'Longitude'],
+           data=data[["Longitude", "Latitude"]],
+           get_position=['Longitude', 'Latitude'],
            radius=600,
            elevation_scale=4,
            elevation_range=[0, 1000],

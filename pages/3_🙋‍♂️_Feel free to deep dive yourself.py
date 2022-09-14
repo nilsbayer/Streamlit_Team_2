@@ -1,5 +1,6 @@
 import streamlit as st
 from datetime import datetime
+from datetime import date
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -23,11 +24,17 @@ start = st.sidebar.date_input(
     "Starting date",
     datetime(2022, 1, 1))
 
+if start < date(2022, 1, 1):
+    st.sidebar.error("Choose a starting date from 01.01.2022")
+
 # start = np.datetime64(start)
 
 end = st.sidebar.date_input(
     "Ending date",
     datetime(2022, 8, 31))
+
+if end > date(2022, 8, 31):
+    st.sidebar.error("Choose an ending date until 31.08.2022")
 
 # end = np.datetime64(start)
 
@@ -60,7 +67,25 @@ html('''\
     }
     small{
         font-size:1.2rem;
+        animation: color 2s alternate-reverse infinite;
     }
+    @keyframes color {
+        from {
+            color:black;
+        }
+        to {
+            color: #0078D7;
+        }
+    }
+    div{
+        animation: move 1.2s ease-in-out alternate-reverse infinite;
+    }
+    @keyframes move {
+        to {
+            transform: translateX(10px);
+        }
+    }
+
 </style>
 <span id="sp1">EX</span><span  id="sp2">PL</span><span id="sp3">ORE</span>
 <div><small>⬅️ Select a time frame and take a look at the item sales!</small></div>

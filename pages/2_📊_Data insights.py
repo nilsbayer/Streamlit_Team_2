@@ -35,7 +35,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("### Visual chart of most bought products by revenue")
 
-best_pros = add_data(data)
+best_pros = data[data["best_seller"] == True]
 
 fig = px.pie(
     best_pros, values="TransTotal", names="Product", hole = 0.5, width=800, height=520,

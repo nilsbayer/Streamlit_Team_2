@@ -103,7 +103,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("## Comparing locations on the map")
 
-midpoint = (np.average(data["Longitude"]), np.average(data["Latitude"]))
+midpoint = (np.average(data["Latitude"]), np.average(data["Longitude"]))
 
 st.pydeck_chart(pdk.Deck(
     map_style="road",

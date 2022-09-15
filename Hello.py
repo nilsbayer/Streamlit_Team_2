@@ -78,7 +78,7 @@ html('''\
 <div class="upper-con">
     <div class="container">
         <div class="item">
-            <img id="coke_png" class="buy-item" width="140px" src="./coke.png" alt="">
+            <img id="coke_png" class="buy-item" width="140px" src="https://github.com/nilsbayer/Streamlit_Team_2/blob/main/coke.png" alt="">
             <svg class="turner" id="coke-turner" width="78.4" height="71.4" viewBox="0 0 112 102" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="turner" d="M6 46C6 73.6142 28.3858 96 56 96C83.6142 96 106 73.6142 106 46C106 18.3858 85 8 81 5" stroke="#606060" stroke-width="16"/>
             </svg>            
@@ -180,13 +180,13 @@ html('''\
             </svg>  
         </div>
         <div class="item">
-            <img id="pepsi_png" class="buy-item" width="140px" src="./pepsi.png" alt="">
+            <img id="pepsi_png" class="buy-item" width="140px" src="https://github.com/nilsbayer/Streamlit_Team_2/blob/main/pepsi.png" alt="">
             <svg class="turner" id="pepsi-turner" width="78.4" height="71.4" viewBox="0 0 112 102" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="turner" d="M6 46C6 73.6142 28.3858 96 56 96C83.6142 96 106 73.6142 106 46C106 18.3858 85 8 81 5" stroke="#606060" stroke-width="16"/>
             </svg> 
         </div>
         <div class="item">
-            <img class="buy-item" width="140px" src="./coke.png" alt="">
+            <img class="buy-item" width="140px" src="https://github.com/nilsbayer/Streamlit_Team_2/blob/main/coke.png" alt="">
             <svg class="turner" width="78.4" height="71.4" viewBox="0 0 112 102" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="turner" d="M6 46C6 73.6142 28.3858 96 56 96C83.6142 96 106 73.6142 106 46C106 18.3858 85 8 81 5" stroke="#606060" stroke-width="16"/>
             </svg> 
@@ -197,7 +197,7 @@ html('''\
             </svg> 
         </div>
         <div class="item">
-            <img class="buy-item" width="140px" src="./pepsi.png" alt="">
+            <img class="buy-item" width="140px" src="https://github.com/nilsbayer/Streamlit_Team_2/blob/main/pepsi.png" alt="">
             <svg class="turner" width="78.4" height="71.4" viewBox="0 0 112 102" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="turner" d="M6 46C6 73.6142 28.3858 96 56 96C83.6142 96 106 73.6142 106 46C106 18.3858 85 8 81 5" stroke="#606060" stroke-width="16"/>
             </svg> 

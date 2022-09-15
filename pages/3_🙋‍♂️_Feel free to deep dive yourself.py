@@ -7,6 +7,10 @@ import plotly.express as px
 import pydeck as pdk
 from streamlit.components.v1 import html
 
+st.set_page_config(
+    page_icon="🚀",
+)
+
 
 @st.experimental_singleton
 def load_data():

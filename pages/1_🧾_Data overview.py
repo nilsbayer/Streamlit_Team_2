@@ -4,6 +4,10 @@ import pandas as pd
 from PIL import Image
 from streamlit.components.v1 import html
 
+st.set_page_config(
+    page_icon="🚀",
+)
+
 
 # st.title('Hackathon Group 2')
 html("""\
